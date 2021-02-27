@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="340dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/login_rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <TextView
+        android:id="@+id/itemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="6dp"
+        android:text="محفظتي"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.266"
+        android:layout_marginLeft="279dp" />
+
+    <TextView
+        android:id="@+id/connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="جهاز متصل "
+        android:textColor="#A5A5A5"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.845"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/editName"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:outlineSpotShadowColor="@color/white"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:src="@drawable/edit"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/itemName"
+        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.25"
+        />
+
+    <Button
+        android:id="@+id/share"
+        android:layout_width="100dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/square"
+        android:text="مشاركة الموقع"
+        android:textSize="10dp"
+        app:backgroundTint="@null"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="340dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/login_rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/share" />
+
+    <Button
+        android:id="@+id/locateItem"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:text="تعقب الموقع"
+        android:textColor="@color/black"
+        app:backgroundTint="@null"
+        android:shadowColor="@color/white"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableRight="@drawable/location"
+        android:textAlignment="textStart"
+        android:drawableLeft="@drawable/arrow"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.06"
+        android:gravity="start"/>
+
+    <Button
+        android:id="@+id/alarm"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableLeft="@drawable/arrow"
+        android:drawableRight="@drawable/alarm"
+        android:text="ضبط المنبة"
+        android:shadowColor="@color/white"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.331"
+        android:gravity="start" />
+
+    <TextView
+        android:id="@+id/alert"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:text="تنبه عند الابتعاد عن محفظتي"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.58"
+        app:drawableRightCompat="@drawable/alert"
+        android:gravity="start" />
+
+    <Button
+        android:id="@+id/history"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:drawableLeft="@drawable/arrow"
+        android:drawableRight="@drawable/history"
+        android:text="سجل تاريخ المواقع للإسبوع السابق "
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:shadowColor="@color/white"
+        app:backgroundTint="@null"
+        android:backgroundTint="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.831"
+        android:gravity="start" />
+
+    <Button
+        android:id="@+id/deleteItem"
+        android:layout_width="172dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/square"
+        android:text="حذف محفظتي"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/alert"
+        app:layout_constraintEnd_toEndOf="@+id/alert"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/alert"
+        app:layout_constraintTop_toBottomOf="@+id/alarm"
+        app:layout_constraintVertical_bias="0.5"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

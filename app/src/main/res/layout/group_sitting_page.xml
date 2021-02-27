@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".groupActivity">
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/square"
+        android:text="حذف المجموعة"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView17" />
+
+    <Button
+        android:id="@+id/reprttext"
+        android:layout_width="332dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="40dp"
+
+        android:layout_marginTop="64dp"
+        android:background="@drawable/square"
+        android:drawableLeft="@drawable/edit"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="عائلتي"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="333dp"
+        android:layout_height="239dp"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.445"
+        app:srcCompat="@drawable/login_rectangle" />
+
+    <Button
+        android:id="@+id/addmeMember"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableLeft="@drawable/arrow"
+        android:drawableRight="@drawable/profile"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="إضافة عضو"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/deletMember"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableLeft="@drawable/arrow"
+        android:drawableRight="@drawable/remove_memmber"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="حذف عضو"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:layout_constraintVertical_bias="0.335" />
+
+    <Button
+        android:id="@+id/addItem"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableLeft="@drawable/arrow"
+        android:drawableRight="@drawable/addcircle"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="إضافة ممتلك"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toBottomOf="@+id/aboveline" />
+
+    <Button
+        android:id="@+id/deletItem"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableLeft="@drawable/arrow"
+        android:drawableRight="@drawable/delete"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="حذف ممتلك"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:layout_constraintVertical_bias="1.0" />
+    v
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

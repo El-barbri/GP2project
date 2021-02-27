@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item"
+        android:icon="@drawable/item"
+        android:title="ممتلكاتي"
+
+        > </item>
+    <item
+        android:id="@+id/location"
+        android:icon="@drawable/location"
+        android:title="خريطتي"> </item>
+    <item
+        android:id="@+id/group"
+        android:icon="@drawable/group"
+        android:title="محموعاتي"> </item>
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/profile"
+        android:title="حسابي"> </item>
+</menu>

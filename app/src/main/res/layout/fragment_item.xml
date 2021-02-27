@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <Button
+        android:layout_width="132dp"
+        android:layout_height="126dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/square"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:id="@+id/useritem1"
+        android:text=" محفظتي"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
+
+
+    <Button
+        android:layout_width="132dp"
+        android:layout_height="126dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/square"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:id="@+id/useritem2"
+        android:text=" مفتاحي"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
+
+
+    <ImageButton
+        android:id="@+id/addbutton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="34dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="334dp"
+        android:layout_marginRight="334dp"
+        android:backgroundTint="@null"
+        android:outlineSpotShadowColor="@color/white"
+        android:src="@drawable/addicon" />
+
+
+
+
+</RelativeLayout>

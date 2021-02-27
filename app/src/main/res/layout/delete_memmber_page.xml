@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="322dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/square"
+        android:gravity="center|center"
+        android:text="أعضاء مجموعة عائلتي "
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="291dp"
+        android:layout_height="43dp"
+        android:text="نرجو اختيار العضو الذي تريد إزالته من المجموعة:"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="330dp"
+        android:layout_height="244dp"
+        android:layout_marginTop="224dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login_rectangle" />
+
+    <Button
+        android:id="@+id/addmeMember"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableRight="@drawable/cancel"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="Sarah_5"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:layout_constraintVertical_bias="0.225" />
+
+    <Button
+        android:id="@+id/deletMember"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginBottom="192dp"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableRight="@drawable/cancel"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="Rema44"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toBottomOf="@+id/aboveline" />
+
+    <Button
+        android:id="@+id/addItem"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableRight="@drawable/cancel"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="Ali-10"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/deletItem"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:backgroundTint="?android:attr/windowBackground"
+        android:drawableRight="@drawable/cancel"
+        android:gravity="start"
+        android:paddingTop="12dp"
+        android:shadowColor="@color/white"
+        android:text="Fahad29"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+        app:layout_constraintEnd_toEndOf="@+id/imageView17"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView17"
+        app:layout_constraintTop_toTopOf="@+id/imageView17"
+        app:layout_constraintVertical_bias="0.316" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
