@@ -61,6 +61,8 @@ public class BeaconXInfoParseableImpl implements DeviceInfoParseable<BeaconXInfo
         }
         if (!isEddystone && !isBeacon && !isDeviceInfo) {
             return null;
+
+            // do it
         }
         // avoid repeat
         BeaconXInfo beaconXInfo;
