@@ -1,6 +1,7 @@
 package com.example.gp2project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 public class AdapterItems extends RecyclerView.Adapter<AdapterItems.Holder> {
-    Context context;
 
+
+    Context context;
 
     public AdapterItems(Context context) {
         this.context = context;
-
 
     }
     public Holder onCreateViewHolder(ViewGroup viewGroup, int position) {
@@ -29,6 +30,20 @@ public class AdapterItems extends RecyclerView.Adapter<AdapterItems.Holder> {
         holder.Name.setText(MainActivity.devList.get(position).getName());
         holder.det.setText(MainActivity.devList.get(position).getMac());
 
+        holder.det.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, AddItem.class)
+                        .putExtra("mca", MainActivity.devList.get(position).getMac()));
+            }
+        });
+
+        holder.Name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, AddItem.class).putExtra("mca", MainActivity.devList.get(position).getMac()));
+            }
+        });
 
     }
 

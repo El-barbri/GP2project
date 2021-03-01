@@ -3,7 +3,6 @@ package com.example.gp2project;
 import android.os.ParcelUuid;
 import android.text.TextUtils;
 
-
 import com.moko.support.entity.DeviceInfo;
 import com.moko.support.service.DeviceInfoParseable;
 import com.moko.support.utils.MokoUtils;
@@ -20,7 +19,7 @@ import no.nordicsemi.android.support.v18.scanner.ScanRecord;
  * @ClassPath com.moko.beaconx.utils.BeaconXInfoParseableImpl
  */
 public class BeaconXInfoParseableImpl implements DeviceInfoParseable<BeaconXInfo> {
-    private HashMap<String, BeaconXInfo> beaconXInfoHashMap = new HashMap<>();
+    private final HashMap<String, BeaconXInfo> beaconXInfoHashMap = new HashMap<>();
 
     @Override
     public BeaconXInfo parseDeviceInfo(DeviceInfo deviceInfo) {
@@ -57,6 +56,8 @@ public class BeaconXInfoParseableImpl implements DeviceInfoParseable<BeaconXInfo
                     isBeacon = true;
                     continue;
                 }
+
+
             }
         }
         if (!isEddystone && !isBeacon && !isDeviceInfo) {

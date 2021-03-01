@@ -1,23 +1,20 @@
 package com.example.gp2project;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.gp2project.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.moko.support.MokoConstants;
 import com.moko.support.MokoSupport;
@@ -27,11 +24,6 @@ import com.moko.support.handler.BaseMessageHandler;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
-
-import static java.util.Comparator.comparingInt;
-import static java.util.stream.Collectors.collectingAndThen;
-import static java.util.stream.Collectors.toCollection;
 
 
 public class MainActivity extends AppCompatActivity implements MokoScanDeviceCallback {
@@ -125,42 +117,27 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
        */
     }
 
-    @Override
-    public void onScanDevice(DeviceInfo device) {
+    private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 
-        // Toast.makeText(this, beaconInfo.distance, Toast.LENGTH_SHORT).show();
-        // BeaconXInfo beaconInfo = new BeaconXInfoParseableImpl().parseDeviceInfo(device);
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null) {
+                String action = intent.getAction();
+                if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+                    int blueState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, 0);
+                    switch (blueState) {
+                        case BluetoothAdapter.STATE_TURNING_OFF:
+                            mHandler.removeMessages(0);
+                            MokoSupport.getInstance().stopScanDevice();
+                            onStopScan();
 
-       // Toast.makeText(this, "Name is : "+device.name, Toast.LENGTH_SHORT).show();
-       // Toast.makeText(this, "Mac is : "+device.mac, Toast.LENGTH_SHORT).show();
+                            break;
 
-        if (mac.contains(device.mac))
-        {
-
-        }else {
-            mac.add(device.mac);
-            if (device.name != null)
-            {
-                devList.add(new DeviceData(device.name,device.mac,device.rssi));
-            }
-        }
-
-
-    /*    if (!devList.isEmpty()) {
-
-            for (int x = 0; x < devList.size(); x++) {
-                if (devList.get(x).getMac().equals(device.mac)) {
-                    devList.add(new DeviceData(device.name,device.mac,device.rssi));
-                    Toast.makeText(this, "Mac is : "+device.mac, Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
-        }else {
-            devList.add(new DeviceData(device.name,device.mac,device.rssi));
         }
-
-     */
-
-    }
+    };
 
 
     @Override
@@ -195,29 +172,33 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
        // Toast.makeText(this, devListfilter.size()+"", Toast.LENGTH_SHORT).show();
     }
 
-
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-
+    private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent != null) {
-                String action = intent.getAction();
-                if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
-                    int blueState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, 0);
-                    switch (blueState) {
-                        case BluetoothAdapter.STATE_TURNING_OFF:
-                            mHandler.removeMessages(0);
-                            MokoSupport.getInstance().stopScanDevice();
-                            onStopScan();
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                            break;
+            Fragment selectedFragment = null;
+            switch (item.getItemId()) {
 
-                    }
-                }
+                case R.id.item:
+                    selectedFragment = new com.example.gp2project.ItemFragment();
+                    break;
+
+                case R.id.location:
+                    selectedFragment= new com.example.gp2project.LocationFragment();
+                    break;
+
+                case R.id.group:
+                    selectedFragment= new com.example.gp2project.GroupFragment();
+                    break;
+
+                case R.id.profile:
+                    selectedFragment = new com.example.gp2project.ProfileFragment();
+                    break;
             }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            return true;
         }
     };
-
 
 
     public class CunstomHandler extends BaseMessageHandler<MainActivity> {
@@ -234,31 +215,42 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
 
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener= new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    @Override
+    public void onScanDevice(DeviceInfo device) {
 
-            Fragment selectedFragment=null;
-            switch (item.getItemId()){
+        // Toast.makeText(this, beaconInfo.distance, Toast.LENGTH_SHORT).show();
+        // BeaconXInfo beaconInfo = new BeaconXInfoParseableImpl().parseDeviceInfo(device);
 
-                case R.id.item:
-                    selectedFragment= new com.example.gp2project.ItemFragment();
-                    break;
+        // Toast.makeText(this, "Name is : "+device.name, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Mac is : "+device.mac, Toast.LENGTH_SHORT).show();
 
-                case R.id.location:
-                    selectedFragment= new com.example.gp2project.LocationFragment();
-                    break;
+        if (mac.contains(device.mac)) {
 
-                case R.id.group:
-                    selectedFragment= new com.example.gp2project.GroupFragment();
-                    break;
-
-                case R.id.profile:
-                    selectedFragment= new com.example.gp2project.ProfileFragment();
-                    break;
+        } else {
+            mac.add(device.mac);
+            devList.add(new DeviceData(device.name, device.mac, device.rssi));
+            /*if (device.name != null)
+            {
+                devList.add(new DeviceData(device.name,device.mac,device.rssi));
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
-            return true;
+
+             */
         }
-    };
+
+
+    /*    if (!devList.isEmpty()) {
+
+            for (int x = 0; x < devList.size(); x++) {
+                if (devList.get(x).getMac().equals(device.mac)) {
+                    devList.add(new DeviceData(device.name,device.mac,device.rssi));
+                    Toast.makeText(this, "Mac is : "+device.mac, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }else {
+            devList.add(new DeviceData(device.name,device.mac,device.rssi));
+        }
+
+     */
+
+    }
 }

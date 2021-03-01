@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GP2project">
-        <activity android:name=".ScanResult"></activity>
+        <activity android:name=".AddItem"></activity>
+        <activity android:name=".ScanResult" />
         <activity
             android:name=".MainActivity"
             android:label="الصفحة الرئيسية" />

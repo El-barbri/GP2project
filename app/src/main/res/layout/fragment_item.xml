@@ -1,43 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-
-
-    <Button
-        android:layout_width="132dp"
-        android:layout_height="126dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        app:backgroundTint="@null"
-        android:background="@drawable/square"
-        android:gravity="center"
-        android:paddingLeft="15dp"
-        android:id="@+id/useritem1"
-        android:text=" محفظتي"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        />
-
-
-    <Button
-        android:layout_width="132dp"
-        android:layout_height="126dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
-        app:backgroundTint="@null"
-        android:background="@drawable/square"
-        android:gravity="center"
-        android:paddingLeft="15dp"
-        android:id="@+id/useritem2"
-        android:text=" مفتاحي"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
     <ImageButton
@@ -49,15 +14,26 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="43dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="334dp"
-        android:layout_marginRight="334dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@null"
         android:outlineSpotShadowColor="@color/white"
-        android:src="@drawable/addicon" />
+        android:src="@drawable/addicon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addbutton" />
 
 
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
