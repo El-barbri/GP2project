@@ -33,6 +33,8 @@ public class AddItem extends AppCompatActivity {
 
         if (intent.hasExtra("mac")) {
             mac = intent.getStringExtra("mac");
+
+            
         }
     }
 
