@@ -39,7 +39,7 @@ import static android.app.PendingIntent.getActivity;
 public class EditProfile  extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    private EditText usernameText, phoneText, emailText ,currentpass,newpass;
+    private EditText usernameText, phoneText, emailText ,currentpasss,newpass;
     private ImageButton logout;
     private FirebaseAuth Auth;
     private DatabaseReference reference;
@@ -94,71 +94,80 @@ public class EditProfile  extends AppCompatActivity {
             }
         });
 
+
+        //If the user click "تعديل كلمة المرور" do this:
+
         changepass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 View view= LayoutInflater.from(getApplicationContext()).inflate(R.layout.password_page , null);
-                currentpass =view.findViewById(R.id.curentpass);
+                currentpasss =view.findViewById(R.id.curentpass);
                 newpass =view.findViewById(R.id.newpass);
 
 
                 AlertDialog.Builder PasswordRestDialog = new AlertDialog.Builder(v.getContext());
-                //   PasswordRestDialog.setTitle("آعادة ضبط كلمة المرور ");
-                //  PasswordRestDialog.setMessage("ادخل البريد الالكتروني الخاص بك ليتم ارسال رابط اعادة ضبط كلمة المرور");
                 PasswordRestDialog.setView(view);
+                PasswordRestDialog.setIcon(R.drawable.setting);
                 PasswordRestDialog.setPositiveButton("تغيير", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String old = currentpass.getText().toString();
+                        String old = currentpasss.getText().toString();
                         String neww = newpass.getText().toString();
 
-                        if(TextUtils.isEmpty(currentpass.getText().toString())){
-                            currentpass.setError("ادخل كلمة المرور السابقة من فضلك");
+
+                        if (TextUtils.isEmpty(old)) {
+                            currentpasss.setError("ادخل كلمة المرور السابقة من فضلك");
+                             return;
+                        }
+                        else if (old.length() < 8) {
+                            currentpasss.setError("يجب  إدخال كلمة المرور أكثر من 8 خانات  ");
                             return;
                         }
-                        if (currentpass.getText().toString().length() <8){
-                            currentpass.setError("يجب  إدخال كلمة المرور أكثر من 8 خانات  ");
-                            return;
-                        }
-                        if(TextUtils.isEmpty(newpass.getText().toString())){
+                        else if (TextUtils.isEmpty(neww)) {
                             newpass.setError("ادخل كلمة المرور الجديدة من فضلك");
                             return;
                         }
-                        if (newpass.getText().toString().length() <8){
+                        else if (neww.length() < 8) {
                             newpass.setError("يجب  إدخال كلمة المرور أكثر من 8 خانات  ");
                             return;
                         }
-                        user=Auth.getCurrentUser();
-                        AuthCredential authCredential= EmailAuthProvider.getCredential(user.getEmail(),old);
+
+                        else{
+                        user = Auth.getCurrentUser();
+                        AuthCredential authCredential = EmailAuthProvider.getCredential(user.getEmail(), old);
                         user.reauthenticate(authCredential).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 //successfully authenticated ,begin update
+                                //update password in DB
+                                reference.child(Auth.getCurrentUser().getUid()).child("password").setValue(newpass.getText().toString());
+                                //update password in Authentication
                                 user.updatePassword(neww).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         //Password update
-                                        Toast.makeText(getApplicationContext(), "تم تعديل كلمة المرور",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "تم تعديل كلمة المرور", Toast.LENGTH_SHORT).show();
 
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
                                         //failed updating password! ,show reason
-                                        Toast.makeText(getApplicationContext(), ""+e.getMessage(),Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                                     }
                                 });
 
                             }
                         });
-
+                    }
                     }
                 });
 
                 PasswordRestDialog.setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), "تم الإلغاء بنجاح",Toast.LENGTH_SHORT).show();
 
                     }
                 });

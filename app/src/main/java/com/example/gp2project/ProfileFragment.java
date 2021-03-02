@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -40,6 +42,10 @@ public class ProfileFragment extends Fragment {
     private FirebaseAuth Auth;
     private FirebaseDatabase db;
     private DatabaseReference ref;
+    private ImageButton logout;
+    private Button setreport, editinfo;
+    private  String username1 , email1, phone1;
+
 
 
 
@@ -51,6 +57,12 @@ public class ProfileFragment extends Fragment {
         username=(TextView)profile.findViewById(R.id.username);
         email=(TextView)profile.findViewById(R.id.username2);
         phone=(TextView)profile.findViewById(R.id.username3);
+        logout=(ImageButton)profile.findViewById(R.id.logout);
+        setreport=(Button)profile.findViewById(R.id.setreport);
+        editinfo=(Button)profile.findViewById(R.id.editinfo);
+
+
+
 
 
         Auth=FirebaseAuth.getInstance();
@@ -66,9 +78,9 @@ public class ProfileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 for(DataSnapshot dataSnapshot: snapshot.getChildren() ){
-                    String username1=""+dataSnapshot.child("username").getValue();
-                    String email1=""+dataSnapshot.child("email").getValue();
-                    String phone1=""+dataSnapshot.child("phonNum").getValue();
+                    username1=""+dataSnapshot.child("username").getValue();
+                    email1=""+dataSnapshot.child("email").getValue();
+                    phone1=""+dataSnapshot.child("phonNum").getValue();
                     username.setText(username1);
                     email.setText(email1);
                     phone.setText(phone1);
@@ -85,6 +97,37 @@ public class ProfileFragment extends Fragment {
 
         });
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Auth.getCurrentUser() != null){
+                    Log.d("TAG", "log out and start the activity login");
+                    Auth.signOut();
+                    startActivity(new Intent(getActivity(), Login.class ));
+
+
+                }
+            }
+        });
+
+        setreport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        editinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //send data to edit profile (from fragment to edit info activity)
+                Intent intent = new Intent(getActivity(), EditProfile.class);
+                intent.putExtra("username", username1);
+                intent.putExtra("email", email1);
+                intent.putExtra("phonNum", phone1);
+                startActivity(intent);
+            }
+        });
 
 
 
