@@ -38,7 +38,7 @@ public class AddItem extends AppCompatActivity {
 
     public void Add(View view) {
 
-        mData = FirebaseDatabase.getInstance().getReference().child("Hard").child(auth.getUid());
+        mData = FirebaseDatabase.getInstance().getReference().child("Item").child(auth.getUid());
         HashMap<String, String> map = new HashMap<>();
         map.put("Name", name.getText().toString());
         map.put("Mac", mac);

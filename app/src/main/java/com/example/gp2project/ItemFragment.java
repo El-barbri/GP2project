@@ -56,7 +56,7 @@ public class ItemFragment extends Fragment {
 
     public void Init() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference().child("Hard").child(auth.getUid());
+        DatabaseReference reference = database.getReference().child("Item").child(auth.getUid());
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
