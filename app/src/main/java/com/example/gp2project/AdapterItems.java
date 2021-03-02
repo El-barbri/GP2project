@@ -34,7 +34,7 @@ public class AdapterItems extends RecyclerView.Adapter<AdapterItems.Holder> {
             @Override
             public void onClick(View view) {
                 context.startActivity(new Intent(context, AddItem.class)
-                        .putExtra("mca", MainActivity.devList.get(position).getMac()));
+                        .putExtra("mac", MainActivity.devList.get(position).getMac()));
             }
         });
 

@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
     public static ArrayList<DeviceData> devList = new ArrayList<>();
     public static ArrayList<DeviceData> devListfilter = new ArrayList<>();
     List<String>  mac = new ArrayList();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new com.example.gp2project.ItemFragment()).commit();
 
+
         mHandler = new CunstomHandler(this);
 
 //        EventBus.getDefault().register(this);
@@ -51,9 +54,11 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
         registerReceiver(mReceiver, filter);
         if (!MokoSupport.getInstance().isBluetoothOpen()) {
             MokoSupport.getInstance().enableBluetooth();
+            // startScan();
         } else {
             startScan();
         }
+
     }
 
     private void startScan() {
@@ -223,6 +228,7 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
 
         // Toast.makeText(this, "Name is : "+device.name, Toast.LENGTH_SHORT).show();
         // Toast.makeText(this, "Mac is : "+device.mac, Toast.LENGTH_SHORT).show();
+
 
         if (mac.contains(device.mac)) {
 
