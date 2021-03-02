@@ -205,7 +205,7 @@ public class EditProfile  extends AppCompatActivity {
 
         //update phone
 
-          if( isPhonechange() && isPhoneexist()) {
+          if( isPhonechange()) {
 
             reference.child(Auth.getCurrentUser().getUid()).child("phonNum").setValue(phoneText.getText().toString());
             Toast.makeText(EditProfile.this, "تم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
@@ -217,33 +217,6 @@ public class EditProfile  extends AppCompatActivity {
 
     }
 
-    private boolean isPhoneexist() {
-        flag = true;
-        if (! profilephonNum.equals(phoneText.getText().toString())) {
-            reference.orderByChild("phonNum").equalTo(phoneText.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.exists()) {
-                        Log.w("TAG", "change the phonenumber with existing phonenumber " + snapshot);
-                        phoneText.setError("رقم الهاتف موجود مسبقا");
-                        phoneText.requestFocus();
-                        flag=false;
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-
-
-        }
-        else {
-            flag=false;
-        }
-        return flag;
-    }
 
     private boolean isEmailexist() {
         flag= true;
