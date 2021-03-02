@@ -39,7 +39,7 @@ import static android.app.PendingIntent.getActivity;
 public class EditProfile  extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    private EditText usernameText, phoneText, emailText ,currentpasss,newpass;
+    private EditText  phoneText, emailText ,currentpasss,newpass;
     private ImageButton logout;
     private FirebaseAuth Auth;
     private DatabaseReference reference;
@@ -65,9 +65,9 @@ public class EditProfile  extends AppCompatActivity {
         Log.d(TAG, "تم الوصول الى صفحة تعديل المعلومات مع " + profileusername + " " + profileemail + " " + profilephonNum);
 
         //pointer
-        usernameText = findViewById(R.id.username);
-        phoneText = findViewById(R.id.phonenum);
-        emailText = findViewById(R.id.email);
+
+        phoneText = (EditText)findViewById(R.id.phonenum);
+        emailText = (EditText)findViewById(R.id.email);
         logout = findViewById(R.id.logout);
         changepass = findViewById(R.id.passwordset);
 
@@ -180,26 +180,32 @@ public class EditProfile  extends AppCompatActivity {
     }
 
 
-
+    //If the user click "تعديل" do this:
     public void update(View view) {
+        //update email
         if (isEmailexist()){
             if (isEmailchange()){
                 Auth.getCurrentUser().updateEmail(emailText.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        reference.child(Auth.getCurrentUser().getUid()).child("email").setValue(emailText.getText().toString());
-                        Toast.makeText(EditProfile.this, "تم حفظ التعديلات للبريد الالكتروني  ", Toast.LENGTH_SHORT).show();
-
-
-                    }
-
+                        if (task.isSuccessful()) {
+                            reference.child(Auth.getCurrentUser().getUid()).child("email").setValue(emailText.getText().toString());
+                            Toast.makeText(EditProfile.this, "تم حفظ التعديلات للبريد الالكتروني  ", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(EditProfile.this, "لم يتم حفظ التعديلات للبريد الالكتروني  ", Toast.LENGTH_SHORT).show();
+                        } }
                 });
-
             }}
+
         else {
             Toast.makeText(EditProfile.this, "لم يتم حفظ التعديلات للبريد الالكتروني  ", Toast.LENGTH_SHORT).show();
         }
-        if( isPhonechange()) {
+
+
+        //update phone
+
+          if( isPhonechange() && isPhoneexist()) {
 
             reference.child(Auth.getCurrentUser().getUid()).child("phonNum").setValue(phoneText.getText().toString());
             Toast.makeText(EditProfile.this, "تم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
@@ -210,34 +216,34 @@ public class EditProfile  extends AppCompatActivity {
         }
 
     }
-/*
+
     private boolean isPhoneexist() {
-        flag1= true;
+        flag = true;
         if (! profilephonNum.equals(phoneText.getText().toString())) {
             reference.orderByChild("phonNum").equalTo(phoneText.getText().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()) {
-                        Log.w("TAG", "createUserWithphone:failure" + snapshot);
-                        phoneText.setError("رقم الهاتف موجود مسبقًا");
+                    if (snapshot.exists()) {
+                        Log.w("TAG", "change the phonenumber with existing phonenumber " + snapshot);
+                        phoneText.setError("رقم الهاتف موجود مسبقا");
                         phoneText.requestFocus();
-                        flag1=false;
-                        return;
+                        flag=false;
                     }
                 }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
             });
 
+
         }
         else {
-            flag1=false;
+            flag=false;
         }
-        return flag1;
+        return flag;
     }
-*/
 
     private boolean isEmailexist() {
         flag= true;
@@ -246,7 +252,7 @@ public class EditProfile  extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.exists()) {
-                        Log.w("TAG", "createUserWithUsernam:failure" + snapshot);
+                        Log.w("TAG", "change the email with existing email" + snapshot);
                         emailText.setError("البريد الالكتروني موجود مسبقًا");
                         emailText.requestFocus();
                         flag=false;
