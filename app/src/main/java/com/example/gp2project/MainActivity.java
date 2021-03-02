@@ -229,12 +229,9 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
         } else {
             mac.add(device.mac);
             devList.add(new DeviceData(device.name, device.mac, device.rssi));
-            /*if (device.name != null)
-            {
-                devList.add(new DeviceData(device.name,device.mac,device.rssi));
+            if (device.name != null) {
+                devList.add(new DeviceData(device.name, device.mac, device.rssi));
             }
-
-             */
         }
 
 
