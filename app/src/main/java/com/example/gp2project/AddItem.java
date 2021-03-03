@@ -43,6 +43,6 @@ public class AddItem extends AppCompatActivity {
         map.put("Name", name.getText().toString());
         map.put("Mac", mac);
         mData.push().setValue(map);
-        Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "تم اضافة الممتلك بنجاح", Toast.LENGTH_SHORT).show();
     }
 }
