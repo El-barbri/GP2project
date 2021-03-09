@@ -27,28 +27,28 @@ public class AdapterItems extends RecyclerView.Adapter<AdapterItems.Holder> {
 
         // handle action click on adapter
 
-        holder.Name.setText(MainActivity.devList.get(position).getName());
-        holder.det.setText(MainActivity.devList.get(position).getMac());
+        holder.Name.setText(ScanResult.devList.get(position).getName());
+        holder.det.setText(ScanResult.devList.get(position).getMac());
 
         holder.det.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 context.startActivity(new Intent(context, AddItem.class)
-                        .putExtra("mac", MainActivity.devList.get(position).getMac()));
+                        .putExtra("mac", ScanResult.devList.get(position).getMac()));
             }
         });
 
         holder.Name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, AddItem.class).putExtra("mac", MainActivity.devList.get(position).getMac()));
+                context.startActivity(new Intent(context, AddItem.class).putExtra("mac", ScanResult.devList.get(position).getMac()));
             }
         });
 
     }
 
     public int getItemCount() {
-        return MainActivity.devList.size();
+        return ScanResult.devList.size();
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.gp2project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,13 @@ public class AdapterHomeItems extends RecyclerView.Adapter<AdapterHomeItems.Hold
         // handle action click on adapter
 
         holder.name.setText(list.get(position).getName());
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, ItemPage.class).putExtra("Mac", list.get(position).getMac())
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            }
+        });
 
     }
 

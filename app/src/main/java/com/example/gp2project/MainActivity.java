@@ -1,38 +1,53 @@
 package com.example.gp2project;
 
-import android.bluetooth.BluetoothAdapter;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.moko.support.MokoConstants;
-import com.moko.support.MokoSupport;
-import com.moko.support.callback.MokoScanDeviceCallback;
-import com.moko.support.entity.DeviceInfo;
-import com.moko.support.handler.BaseMessageHandler;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements MokoScanDeviceCallback {
+public class MainActivity extends AppCompatActivity {
 
-    private Handler mHandler;
+    // implements MokoScanDeviceCallback
+
+   /* private Handler mHandler;
     public static ArrayList<DeviceData> devList = new ArrayList<>();
     public static ArrayList<DeviceData> devListfilter = new ArrayList<>();
     List<String>  mac = new ArrayList();
 
+    */
+
+    private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            Fragment selectedFragment = null;
+            switch (item.getItemId()) {
+
+                case R.id.item:
+                    selectedFragment = new com.example.gp2project.ItemFragment();
+                    break;
+
+                case R.id.location:
+                    selectedFragment = new com.example.gp2project.LocationFragment();
+                    break;
+
+                case R.id.group:
+                    selectedFragment = new com.example.gp2project.GroupFragment();
+                    break;
+
+                case R.id.profile:
+                    selectedFragment = new com.example.gp2project.ProfileFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+            return true;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
                 new com.example.gp2project.ItemFragment()).commit();
 
 
-        mHandler = new CunstomHandler(this);
+     /*   mHandler = new CunstomHandler(this);
 
 //        EventBus.getDefault().register(this);
         // 注册广播接收器
@@ -59,8 +74,12 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
             startScan();
         }
 
+      */
     }
 
+
+
+    /*
     private void startScan() {
         if (!MokoSupport.getInstance().isBluetoothOpen()) {
             // 蓝牙未打开，开启蓝牙
@@ -69,12 +88,12 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
             return;
         }
 
-        /*
+
         if (!isLocationPermissionOpen()) {
             return;
         }
 
-      */
+
 
         MokoSupport.getInstance().startScanDevice(this);
         mHandler.postDelayed(new Runnable() {
@@ -115,11 +134,11 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
     @Override
     public void onStartScan() {
         Toast.makeText(this, "Start Scan", Toast.LENGTH_SHORT).show();
-      /*  beaconInfoParseable = new BeaconInfoParseableImpl();
+        beaconInfoParseable = new BeaconInfoParseableImpl();
         if (!isLocationPermissionOpen()) {
             return;
         }
-       */
+
     }
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -152,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
         devListfilter.clear();
 
 
-      /*  for (DeviceData dev : devList)
+        for (DeviceData dev : devList)
         {
             if (devListfilter.isEmpty())
             {
@@ -173,37 +192,9 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
             }
         }
 
-       */
-       // Toast.makeText(this, devListfilter.size()+"", Toast.LENGTH_SHORT).show();
+
+        // Toast.makeText(this, devListfilter.size()+"", Toast.LENGTH_SHORT).show();
     }
-
-    private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-            Fragment selectedFragment = null;
-            switch (item.getItemId()) {
-
-                case R.id.item:
-                    selectedFragment = new com.example.gp2project.ItemFragment();
-                    break;
-
-                case R.id.location:
-                    selectedFragment= new com.example.gp2project.LocationFragment();
-                    break;
-
-                case R.id.group:
-                    selectedFragment= new com.example.gp2project.GroupFragment();
-                    break;
-
-                case R.id.profile:
-                    selectedFragment = new com.example.gp2project.ProfileFragment();
-                    break;
-            }
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-            return true;
-        }
-    };
 
 
     public class CunstomHandler extends BaseMessageHandler<MainActivity> {
@@ -241,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
         }
 
 
-    /*    if (!devList.isEmpty()) {
+       if (!devList.isEmpty()) {
 
             for (int x = 0; x < devList.size(); x++) {
                 if (devList.get(x).getMac().equals(device.mac)) {
@@ -253,7 +244,8 @@ public class MainActivity extends AppCompatActivity implements MokoScanDeviceCal
             devList.add(new DeviceData(device.name,device.mac,device.rssi));
         }
 
-     */
+
 
     }
+    */
 }

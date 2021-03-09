@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class ItemFragment extends Fragment {
 
     ImageButton add;
-    ArrayList<DeviceData> data = MainActivity.devListfilter;
+    ArrayList<DeviceData> data = ScanResult.devListfilter;
     RecyclerView rec;
     FirebaseAuth auth;
     ArrayList<DevModel> list = new ArrayList<>();
@@ -65,7 +65,7 @@ public class ItemFragment extends Fragment {
                     DevModel dev = new DevModel();
                     dev.setKey(snapshot.getKey());
                     dev.setName(snapshot.child("Name").getValue(String.class));
-                    dev.setKey(snapshot.child("Mac").getValue(String.class));
+                    dev.setMac(snapshot.child("Mac").getValue(String.class));
                     list.add(dev);
                     //snapshot.child("City").getValue(String.class)
                 }
