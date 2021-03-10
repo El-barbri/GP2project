@@ -117,7 +117,7 @@ public class EditProfile  extends AppCompatActivity {
 
                         if (TextUtils.isEmpty(old)) {
                             currentpasss.setError("ادخل كلمة المرور السابقة من فضلك");
-                             return;
+                            return;
                         }
                         else if (old.length() < 8) {
                             currentpasss.setError("يجب  إدخال كلمة المرور أكثر من 8 خانات  ");
@@ -133,34 +133,34 @@ public class EditProfile  extends AppCompatActivity {
                         }
 
                         else{
-                        user = Auth.getCurrentUser();
-                        AuthCredential authCredential = EmailAuthProvider.getCredential(user.getEmail(), old);
-                        user.reauthenticate(authCredential).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                //successfully authenticated ,begin update
-                                //update password in DB
-                                reference.child(Auth.getCurrentUser().getUid()).child("password").setValue(newpass.getText().toString());
-                                //update password in Authentication
-                                user.updatePassword(neww).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        //Password update
-                                        Toast.makeText(getApplicationContext(), "تم تعديل كلمة المرور", Toast.LENGTH_SHORT).show();
+                            user = Auth.getCurrentUser();
+                            AuthCredential authCredential = EmailAuthProvider.getCredential(user.getEmail(), old);
+                            user.reauthenticate(authCredential).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    //successfully authenticated ,begin update
+                                    //update password in DB
+                                    reference.child(Auth.getCurrentUser().getUid()).child("password").setValue(newpass.getText().toString());
+                                    //update password in Authentication
+                                    user.updatePassword(neww).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            //Password update
+                                            Toast.makeText(getApplicationContext(), "تم تعديل كلمة المرور", Toast.LENGTH_SHORT).show();
 
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        //failed updating password! ,show reason
-                                        Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            //failed updating password! ,show reason
+                                            Toast.makeText(getApplicationContext(), "" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
-                                    }
-                                });
+                                        }
+                                    });
 
-                            }
-                        });
-                    }
+                                }
+                            });
+                        }
                     }
                 });
 
@@ -205,7 +205,7 @@ public class EditProfile  extends AppCompatActivity {
 
         //update phone
 
-          if( isPhonechange()) {
+        if( isPhonechange()) {
 
             reference.child(Auth.getCurrentUser().getUid()).child("phonNum").setValue(phoneText.getText().toString());
             Toast.makeText(EditProfile.this, "تم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
@@ -214,6 +214,8 @@ public class EditProfile  extends AppCompatActivity {
         else {
             Toast.makeText(EditProfile.this, "لم يتم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
         }
+
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
     }
 
