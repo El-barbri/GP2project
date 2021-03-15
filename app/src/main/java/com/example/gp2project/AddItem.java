@@ -44,5 +44,7 @@ public class AddItem extends AppCompatActivity {
         map.put("Mac", mac);
         mData.push().setValue(map);
         Toast.makeText(this, "تم اضافة الممتلك بنجاح", Toast.LENGTH_SHORT).show();
+
+        startActivity(new Intent(this,MainActivity.class));
     }
 }
