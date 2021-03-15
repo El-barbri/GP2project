@@ -19,19 +19,21 @@ public class ItemPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_page);
+
         itemName=findViewById(R.id.itemName);
 
         Intent intent = getIntent();
+
         if (intent.hasExtra("Mac")) {
             Mac = intent.getStringExtra("Mac");
             // Toast.makeText(this, Mac, Toast.LENGTH_SHORT).show();
+            if(intent.hasExtra("item")){
+                name=intent.getStringExtra("item");
+                itemName.setText(name);
+            }
 
         }
-        if(intent.hasExtra("item")){
-            name=intent.getStringExtra("item");
-            itemName.setText(name);
 
-        }
 
 
     }
