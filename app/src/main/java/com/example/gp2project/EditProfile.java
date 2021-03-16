@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,11 +46,16 @@ public class EditProfile  extends AppCompatActivity {
     private DatabaseReference reference;
     private String profileusername, profileemail, profilephonNum ;
     private boolean flag;
-    private boolean flag1;
-    private String username, email, phonNum;
     private Button changepass ,changeToNew;
     private FirebaseUser user;
-
+    private  String phonePattren= "^(05)[013456789][0-9]{7}$";
+    /*  number must start with 05 followed by prefix then any 7 number
+    0, 5, 3 : STC prefix
+       6, 4 : Mobily prefix
+       9, 8 : Zain prefix
+       7 : MVNO prefix (Virgin and Lebara)
+       1 : Bravo prefix
+*/
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -190,7 +196,11 @@ public class EditProfile  extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             reference.child(Auth.getCurrentUser().getUid()).child("email").setValue(emailText.getText().toString());
+
                             Toast.makeText(EditProfile.this, "تم حفظ التعديلات للبريد الالكتروني  ", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
+
                         }
                         else {
                             Toast.makeText(EditProfile.this, "لم يتم حفظ التعديلات للبريد الالكتروني  ", Toast.LENGTH_SHORT).show();
@@ -204,19 +214,50 @@ public class EditProfile  extends AppCompatActivity {
 
 
         //update phone
+       if (isPhoneexist()) {
+       }
+       else {
+           Toast.makeText(EditProfile.this, "لم يتم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
+       }
+    }
 
-        if( isPhonechange()) {
 
-            reference.child(Auth.getCurrentUser().getUid()).child("phonNum").setValue(phoneText.getText().toString());
-            Toast.makeText(EditProfile.this, "تم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
+    private boolean isPhoneexist() {
+        flag= true;
+        if (! profilephonNum.equals(phoneText.getText().toString())) {
+            String phone=phoneText.getText().toString().trim();
+            reference.orderByChild("phonNum").equalTo(phone).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()) {
+                        Log.w("TAG", "change the phone with existing phone" + snapshot);
+                        phoneText.setError("رقم الهاتف موجود مسبقًا");
+                        phoneText.requestFocus();
+                        flag=false;
+                    }
+
+                    else{
+                        if (isPhonechange()) {
+                            reference.child(Auth.getCurrentUser().getUid()).child("phonNum").setValue(phoneText.getText().toString());
+                            Toast.makeText(EditProfile.this, "تم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        } else {
+                            Toast.makeText(EditProfile.this, "لم يتم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
 
         }
         else {
-            Toast.makeText(EditProfile.this, "لم يتم حفظ التعديلات لرقم الهاتف ", Toast.LENGTH_SHORT).show();
+            flag=false;
         }
-
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+        return flag;
     }
 
 
@@ -274,6 +315,10 @@ public class EditProfile  extends AppCompatActivity {
             }
             if(phoneText.length()<10){
                 phoneText.setError("الرجاء إدخال رقم هاتف أكثر من 10 خانات ");
+                return false;
+            }
+            if (! phoneText.getText().toString().matches(phonePattren)){
+                phoneText.setError("الرجاء إدخال رقم الهاتف صالح ");
                 return false;
             }
 

@@ -45,6 +45,14 @@ public class Register extends AppCompatActivity {
     private static final String USER="user";
     private static final String TAG="Register";
     private user user;
+    private  String phonePattren= "^(05)[013456789][0-9]{7}$";
+    /*  number must start with 05 followed by prefix then any 7 number
+       0, 5, 3 : STC prefix
+       6, 4 : Mobily prefix
+       9, 8 : Zain prefix
+       7 : MVNO prefix (Virgin and Lebara)
+       1 : Bravo prefix
+     */
     private ProgressBar progressBar;
 
 
@@ -82,6 +90,9 @@ public class Register extends AppCompatActivity {
                 }
 
 
+
+
+
                 ref.orderByChild("username").equalTo(usernameAfter).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -113,6 +124,11 @@ public class Register extends AppCompatActivity {
                                         }
                                         if(TextUtils.isEmpty(phoneAfter)){
                                             phone.setError("الرجاء إدخال رقم الهاتف ");
+                                            return;
+                                        }
+
+                                        if (! phoneAfter.matches(phonePattren)){
+                                            phone.setError("الرجاء إدخال رقم الهاتف صالح ");
                                             return;
                                         }
                                         if (passwordAfter.length() <8){
