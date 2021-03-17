@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingGroup">
+    tools:context=".groupActivity">
 
 
     <Button
@@ -59,7 +59,6 @@
         app:layout_constraintVertical_bias="0.445"
         app:srcCompat="@drawable/login_rectangle" />
 
-
     <Button
         android:id="@+id/addmeMember"
         style="@style/Widget.AppCompat.Button.Borderless"
@@ -75,15 +74,12 @@
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="20dp"
-        android:onClick="AddMember"
         app:layout_constraintBottom_toBottomOf="@+id/imageView17"
         app:layout_constraintEnd_toEndOf="@+id/imageView17"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/imageView17"
         app:layout_constraintTop_toTopOf="@+id/imageView17"
-        app:layout_constraintVertical_bias="0.0"
-
-        />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/deletMember"
@@ -123,7 +119,6 @@
         android:text="إضافة ممتلك"
         android:textAlignment="textStart"
         android:textColor="#000000"
-        android:onClick="AddItem"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView17"
         app:layout_constraintEnd_toEndOf="@+id/imageView17"
