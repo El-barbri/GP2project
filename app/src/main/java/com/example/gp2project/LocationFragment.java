@@ -12,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.gp2project.R;
-
 public class LocationFragment extends Fragment {
     private Button location;
 
@@ -27,7 +25,7 @@ public class LocationFragment extends Fragment {
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), com.example.gp2project.groupActivity.class);
+                Intent intent = new Intent(getActivity(), MapLocation.class);
                 startActivity(intent);
             }
         });

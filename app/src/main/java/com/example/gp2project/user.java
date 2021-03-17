@@ -1,29 +1,35 @@
 package com.example.gp2project;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class user {
 
-public class user{
+    String username;
+    String email;
+    String phonNum;
+    String password;
+    String Key;
 
-        private String username;
-        private String email;
-        private String phonNum;
-        private String password;
+    public user() {
 
+    }
 
+    public String getKey() {
+        return Key;
+    }
 
-        public user(){
+    public void setKey(String key) {
+        Key = key;
+    }
 
-        }
-        public user(String username, String email, String phonNum, String password) {
-            this.username = username;
-            this.email = email;
-            this.phonNum = phonNum;
-            this.password = password;
+    public user(String username, String email, String phonNum, String password) {
+        this.username = username;
+        this.email = email;
+        this.phonNum = phonNum;
+        this.password = password;
 
-        }
+    }
 
-        public String getUsername() {
-            return username;
+    public String getUsername() {
+        return username;
         }
 
         public String getEmail() {

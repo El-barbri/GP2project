@@ -25,7 +25,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GP2project">
-        <activity android:name=".ItemPage"></activity>
+        <activity android:name=".MapLocation"></activity>
+        <activity android:name=".SelectUser" />
+        <activity android:name=".InfoGroup" />
+        <activity android:name=".SettingGroup" />
+        <activity android:name=".CreateGroup" />
+        <activity android:name=".ItemPage" />
         <activity android:name=".AddItem" />
         <activity android:name=".ScanResult" />
         <activity

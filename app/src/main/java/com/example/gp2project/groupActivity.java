@@ -1,8 +1,8 @@
 package com.example.gp2project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class groupActivity extends AppCompatActivity {
 
@@ -11,4 +11,6 @@ public class groupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_sitting_page);
     }
+
+
 }

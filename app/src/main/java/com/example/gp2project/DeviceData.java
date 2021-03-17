@@ -5,11 +5,27 @@ public class DeviceData {
     String name;
     String mac;
     int rssi;
+    String Distance;
+
+    public DeviceData(String name, String mac, int rssi, String distance) {
+        this.name = name;
+        this.mac = mac;
+        this.rssi = rssi;
+        Distance = distance;
+    }
+
+    public String getDistance() {
+        return Distance;
+    }
 
     public DeviceData(String name, String mac, int rssi) {
         this.name = name;
         this.mac = mac;
         this.rssi = rssi;
+    }
+
+    public void setDistance(String distance) {
+        Distance = distance;
     }
 
     public String getName() {
