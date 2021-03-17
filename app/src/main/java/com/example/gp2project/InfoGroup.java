@@ -3,6 +3,7 @@ package com.example.gp2project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +29,8 @@ public class InfoGroup extends AppCompatActivity {
     RecyclerView recItems, recUsers;
     ArrayList<user> list = new ArrayList<>();
     ArrayList<DevModel> list2 = new ArrayList<>();
+    ImageButton settingbtn;
+    FirebaseAuth Auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +40,19 @@ public class InfoGroup extends AppCompatActivity {
         intent = getIntent();
         recUsers = findViewById(R.id.recyclerView2);
         recItems = findViewById(R.id.recyclerView);
+        settingbtn=findViewById(R.id.settingbtn);
+
+        //declared authentication
+        Auth = FirebaseAuth.getInstance();
 
         if (intent.hasExtra("Name")) {
             name = intent.getStringExtra("Name");
             key = intent.getStringExtra("key");
             AdminKey = intent.getStringExtra("AdminKey");
+        }
+
+        if(Auth.getUid().equals(AdminKey)){
+          settingbtn.setVisibility(View.VISIBLE);
         }
 
         initUsers();

@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +27,8 @@ public class GroupFragment extends Fragment {
     ImageButton plus;
     RecyclerView rec;
     ArrayList<GroupModel> list = new ArrayList<>();
+    private FirebaseAuth Auth;
+
 
     @Nullable
     @Override
@@ -43,6 +46,10 @@ public class GroupFragment extends Fragment {
         });
 
 
+        //declared authentication
+        Auth = FirebaseAuth.getInstance();
+
+
         Init();
 
         return root;
@@ -56,17 +63,21 @@ public class GroupFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    GroupModel dev = new GroupModel();
-                    dev.setKey(snapshot.getKey());
-                    dev.setName(snapshot.child("Name").getValue(String.class));
-                    dev.setUserAdminKey(snapshot.child("UserAdmin").getValue(String.class));
-                    list.add(dev);
-                    //snapshot.child("City").getValue(String.class)
-                }
+                    if (snapshot.child("Members").child(Auth.getUid()).exists()) { //to display the group only for the members in the group
+                        GroupModel dev = new GroupModel();
+                        dev.setKey(snapshot.getKey()); //ID group
+                        dev.setName(snapshot.child("Name").getValue(String.class)); // name group
+                        dev.setUserAdminKey(snapshot.child("UserAdmin").getValue(String.class)); // admin name
+
+                        list.add(dev);
+                        //snapshot.child("City").getValue(String.class)
+                    }//if
+                }//for
 
                 AdapterGroups adapterHproducts = new AdapterGroups(getContext(), list);
                 rec.setLayoutManager(new GridLayoutManager(getContext(), 2));
                 rec.setAdapter(adapterHproducts);
+
             }
 
             @Override
