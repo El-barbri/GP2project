@@ -36,6 +36,8 @@
 
     <EditText
         android:id="@+id/newName"
+
+
         android:layout_width="186dp"
         android:layout_height="37dp"
         android:ems="10"
