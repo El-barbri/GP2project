@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.ImageButton;
 import com.google.rpc.context.AttributeContext.Auth;
 
 import android.widget.TextView;
@@ -25,11 +26,11 @@ public class SettingGroup extends AppCompatActivity {
     String name;
     String key;
     String AdminKey;
-    Button GroupName;
+    ImageButton GroupName;
     EditText newGroupName;
     DatabaseReference reference;
     Button deletGroup;
-    TextView deletG;
+    TextView deletG,gName;
     Button deletMember;
 
     @Override
@@ -41,6 +42,7 @@ public class SettingGroup extends AppCompatActivity {
         GroupName = findViewById(R.id.editGrouptName);
         deletGroup= findViewById(R.id.deletGroup);
         deletMember=findViewById(R.id.deletMember);
+        gName=findViewById(R.id.gName);
         //newGroupN=findViewById(R.id.newGroupName);
         reference = FirebaseDatabase.getInstance().getReference("Groups");
 
@@ -48,7 +50,7 @@ public class SettingGroup extends AppCompatActivity {
             name = intent.getStringExtra("Name");
             key = intent.getStringExtra("key");
             AdminKey = intent.getStringExtra("AdminKey");
-            GroupName.setText(name);
+            gName.setText(name);
         }
 
         GroupName.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +77,7 @@ public class SettingGroup extends AppCompatActivity {
                         } */
                         else{
                             reference.child(key).child("Name").setValue(newGroupName.getText().toString());
-                            GroupName.setText(changeGroupName);
+                           gName.setText(changeGroupName);
                         }
                     }
 
@@ -158,7 +160,7 @@ public class SettingGroup extends AppCompatActivity {
                 } */
                 else{
                     reference.child(key).child("Name").setValue(newGroupName.getText().toString());
-                    GroupName.setText(changeGroupName);
+                    gName.setText(changeGroupName);
                 }
             }
 
@@ -198,7 +200,7 @@ public class SettingGroup extends AppCompatActivity {
                 } */
                 else{
                     reference.child(key).child("Name").setValue(newGroupName.getText().toString());
-                    GroupName.setText(changeGroupName);
+                    gName.setText(changeGroupName);
                 }
             }
 

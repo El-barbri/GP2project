@@ -38,6 +38,7 @@ public class AdapterHomeItems extends RecyclerView.Adapter<AdapterHomeItems.Hold
                 Intent intent=new Intent(context, ItemPage.class).putExtra("Mac", list.get(position).getMac())
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("item", list.get(position).getName());
+                intent.putExtra("key", list.get(position).getKey());
                 context.startActivity(intent);
             }
         });
