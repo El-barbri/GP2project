@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CreateGroup"
+    android:background="@drawable/background">
 
 
     <ImageView
@@ -113,7 +114,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView17"
-        app:rippleColor="#FAF6F6" />
+        app:rippleColor="#FAF6F6"
+        android:onClick="CreateGroup"/>
 
     <ImageButton
         android:id="@+id/imageButton3"

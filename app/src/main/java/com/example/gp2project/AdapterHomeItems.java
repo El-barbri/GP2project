@@ -36,7 +36,7 @@ public class AdapterHomeItems extends RecyclerView.Adapter<AdapterHomeItems.Hold
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(context, ItemPage.class).putExtra("Mac", list.get(position).getMac())
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        .putExtra("key",list.get(position).getKey()).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("item", list.get(position).getName());
                 context.startActivity(intent);
             }

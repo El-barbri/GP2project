@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingGroup">
+    tools:context=".SettingGroup"
+    android:background="@drawable/background">
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/deletGroup"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_marginTop="56dp"
@@ -128,7 +129,7 @@
         app:layout_constraintTop_toBottomOf="@+id/aboveline" />
 
     <Button
-        android:id="@+id/deletItem"
+        android:id="@+id/delete"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="300dp"
         android:layout_height="60dp"
