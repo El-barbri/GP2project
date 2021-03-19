@@ -6,18 +6,53 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".ScanResult">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <View
+            android:id="@+id/aboveline"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="20dp"
+            android:background="#BDBCBC"
+
+            />
+
+
+    </LinearLayout>
     <TextView
         android:id="@+id/textView"
         android:layout_width="334dp"
         android:layout_height="55dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="90dp"
         android:background="@drawable/login_rectangle"
         android:paddingTop="15dp"
-        android:text="نرجو اختيار الممتلك الذي تريد إضافته بعد انتهاءالمسح"
+        android:paddingRight="10dp"
+        android:text="نرجو اختيار الممتلك الذي تريد إضافته بعد انتهاء المسح"
         android:textColor="@color/black"
         android:textSize="15dp"
-        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,8 +60,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"
-        android:layout_width="407dp"
-        android:layout_height="519dp"
+        android:layout_width="408dp"
+        android:layout_height="429dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

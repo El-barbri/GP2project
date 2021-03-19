@@ -57,14 +57,14 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="37dp"
         android:layout_marginLeft="37dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="90dp"
         android:layout_marginEnd="22dp"
         android:layout_marginRight="22dp"
         android:background="@drawable/login_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintbottom_toTopOf="@+id/additembouton" />
+        />
 
     <TextView
         android:id="@+id/box_title"
@@ -145,24 +145,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:rippleColor="#FAF6F6" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="61dp"
-        android:layout_height="61dp"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2"
-        android:layout_alignRight="@+id/imageView2"
-        android:layout_marginStart="-6dp"
-        android:layout_marginLeft="-6dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="297dp"
-        android:layout_marginRight="297dp"
-        android:background="#00FFFFFF"
-        app:srcCompat="@drawable/cancel"
-        tools:ignore="VectorDrawableCompat" />
 
 
 </RelativeLayout>
