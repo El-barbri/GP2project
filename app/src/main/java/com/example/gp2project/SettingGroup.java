@@ -103,7 +103,7 @@ public class SettingGroup extends AppCompatActivity {
     }
 
     public void deletMember(){
-        startActivity(new Intent(this, SelectUser.class).putExtra("key", key)
+        startActivity(new Intent(this, SelectUser.class).putExtra("key", key).putExtra("type" , "deleteMember")
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
     }
@@ -216,7 +216,7 @@ public class SettingGroup extends AppCompatActivity {
     }
 
     public void AddMember(View view) {
-        startActivity(new Intent(this, SelectUser.class).putExtra("key", key)
+        startActivity(new Intent(this, SelectUser.class).putExtra("key", key).putExtra("type" , "addMember")
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
     }
