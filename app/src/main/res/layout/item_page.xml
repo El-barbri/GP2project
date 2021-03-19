@@ -32,13 +32,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.642"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toEndOf="@+id/share"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.333" />
-
-        app:layout_constraintVertical_bias="0.266"
-        android:layout_marginLeft="279dp" />
 
     <ImageButton
         android:id="@+id/editName"

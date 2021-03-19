@@ -102,7 +102,7 @@ public class SettingGroup extends AppCompatActivity {
 
     }
 
-    public void deletMember(){
+    public void deletMember(View view){
         startActivity(new Intent(this, SelectUser.class).putExtra("key", key).putExtra("type" , "deleteMember")
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
