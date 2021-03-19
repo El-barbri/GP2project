@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/login_rectangle"
         android:paddingTop="15dp"
-        android:text="نرجو اختيار الممتلك الذي تريد إضافته بعد انتهاء المسح"
+        android:text="نرجو اختيار الممتلك الذي تريد إضافته بعد انتهاءالمسح"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:paddingRight="10dp"
