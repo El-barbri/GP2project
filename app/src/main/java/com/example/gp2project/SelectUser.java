@@ -49,6 +49,11 @@ public class SelectUser extends AppCompatActivity {
             rec = findViewById(R.id.rec);
             InitItems();
         }
+        if(intent.getStringExtra("type").equals("deleteMember")){
+            setContentView(R.layout.delete_memmber_page);
+
+        }
+
 
 
     }
