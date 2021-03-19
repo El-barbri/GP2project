@@ -16,7 +16,7 @@
         android:paddingTop="15dp"
         android:text="نرجو اختيار الممتلك الذي تريد إضافته بعد انتهاء المسح"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="15dp"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
