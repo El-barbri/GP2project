@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".AddItem">
 
 
     <ImageView
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintbottom_toTopOf="@+id/additembouton" />
 
     <TextView
         android:id="@+id/box_title"
@@ -137,6 +137,7 @@
         android:layout_marginRight="130dp"
         android:background="@drawable/square"
         android:text="إضــافة "
+        android:onClick="Add"
         android:textColor="@color/black"
         android:textSize="25sp"
         app:backgroundTint="@null"
@@ -145,6 +146,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:rippleColor="#FAF6F6" />
+
+
 
 
 </RelativeLayout>

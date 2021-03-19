@@ -24,7 +24,7 @@ public class AddItem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_item);
+        setContentView(R.layout.enter_item_name_page);
 
 
         name = findViewById(R.id.editTextTextPersonName);
