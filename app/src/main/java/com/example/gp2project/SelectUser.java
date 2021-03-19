@@ -30,18 +30,23 @@ public class SelectUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_user);
 
 
-        rec = findViewById(R.id.rec);
+
+
+
         intent = getIntent();
         auth = FirebaseAuth.getInstance();
 
         if (intent.hasExtra("key")) {
             Key = intent.getStringExtra("key");
+            setContentView(R.layout.activity_select_user);
+            rec = findViewById(R.id.rec);
             Init();
         } else {
             Key = intent.getStringExtra("Key");
+            setContentView(R.layout.activity_select_user);
+            rec = findViewById(R.id.rec);
             InitItems();
         }
 

@@ -30,6 +30,7 @@ public class SettingGroup extends AppCompatActivity {
     DatabaseReference reference;
     Button deletGroup;
     TextView deletG;
+    Button deletMember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class SettingGroup extends AppCompatActivity {
         intent = getIntent();
         GroupName = findViewById(R.id.editGrouptName);
         deletGroup= findViewById(R.id.deletGroup);
+        deletMember=findViewById(R.id.deletMember);
         //newGroupN=findViewById(R.id.newGroupName);
         reference = FirebaseDatabase.getInstance().getReference("Groups");
 
@@ -97,6 +99,12 @@ public class SettingGroup extends AppCompatActivity {
                 deleteGroup();
             }
         });
+
+    }
+
+    public void deletMember(){
+        startActivity(new Intent(this, SelectUser.class).putExtra("key", key)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
     }
 
