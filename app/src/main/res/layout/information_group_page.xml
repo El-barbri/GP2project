@@ -7,17 +7,17 @@
     android:background="@drawable/background">
 
     <ImageButton
+        android:id="@+id/settingbtn"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/setting"
         android:onClick="Settings"
-        android:id="@+id/settingbtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/groupItem"

@@ -2,6 +2,7 @@ package com.example.gp2project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -51,9 +52,12 @@ public class InfoGroup extends AppCompatActivity {
             AdminKey = intent.getStringExtra("AdminKey");
         }
 
-        if(Auth.getUid().equals(AdminKey)){
-          settingbtn.setVisibility(View.VISIBLE);
+        if(!Auth.getUid().equals(AdminKey)){
+          settingbtn.setVisibility(View.INVISIBLE);
+          //Log.w("هناااااااااااا",""+Auth.getUid());
+          //Log.w("هناااااااااااا",""+AdminKey);
         }
+
 
         initUsers();
         InitItems();
@@ -79,7 +83,7 @@ public class InfoGroup extends AppCompatActivity {
                     user dev = new user();
                     dev.setKey(snapshot.getKey());
                     dev.setEmail(snapshot.child("Mail").getValue(String.class));
-                    dev.setPhonNum(snapshot.child("phonNum").getValue(String.class));
+                    //dev.setPhonNum(snapshot.child("phonNum").getValue(String.class));
                     dev.setUsername(snapshot.child("Name").getValue(String.class));
                     list.add(dev);
                     //snapshot.child("City").getValue(String.class)
