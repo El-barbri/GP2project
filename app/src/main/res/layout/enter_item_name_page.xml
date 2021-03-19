@@ -9,6 +9,44 @@
 
 
     <ImageView
+        android:id="@+id/logo"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <View
+            android:id="@+id/aboveline"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="20dp"
+            android:background="#BDBCBC"
+
+            />
+
+
+    </LinearLayout>
+
+
+    <ImageView
         android:id="@+id/imageView2"
         android:layout_width="352dp"
         android:layout_height="201dp"
@@ -26,32 +64,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/share" />
-
+        app:layout_constraintbottom_toTopOf="@+id/additembouton" />
 
     <TextView
-        android:id="@+id/item_name_box"
-        android:layout_width="346dp"
-        android:layout_height="41dp"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_alignLeft="@+id/imageView2"
+        android:id="@+id/box_title"
+        android:layout_width="319dp"
+        android:layout_height="40dp"
         android:layout_alignTop="@+id/imageView2"
         android:layout_alignEnd="@+id/imageView2"
-        android:layout_alignRight="@+id/imageView2"
-
-        android:layout_alignBottom="@+id/imageView2"
-        android:layout_marginStart="-16dp"
         android:layout_marginLeft="-16dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="11dp"
         android:layout_marginRight="11dp"
-        android:layout_marginBottom="144dp"
-        android:text="ادخل اسم الممتلك : "
+        android:layout_marginBottom="146dp"
+        android:text="ادخل اسم الممتلك :"
         android:textColor="@color/black"
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/itemNameTextBox"
+        android:id="@+id/editTextTextPersonName"
         android:layout_width="323dp"
         android:layout_height="53dp"
         android:layout_alignStart="@+id/imageView2"
@@ -90,7 +121,6 @@
         android:layout_marginBottom="62dp"
         android:text="الحد الأقصى ٢٥ حرف" />
 
-
     <Button
         android:id="@+id/additembouton"
         android:layout_width="150dp"
@@ -100,11 +130,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="125dp"
-        android:layout_marginLeft="125dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="136dp"
-        android:layout_marginRight="136dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginLeft="131dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginRight="130dp"
         android:background="@drawable/square"
         android:text="إضــافة "
         android:textColor="@color/black"
@@ -113,7 +143,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:rippleColor="#FAF6F6" />
 
     <ImageButton

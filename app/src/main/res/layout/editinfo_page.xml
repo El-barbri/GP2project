@@ -20,26 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <ImageButton
-        android:id="@+id/logout"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="34dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="334dp"
-        android:layout_marginRight="334dp"
-        android:backgroundTint="@null"
-        android:outlineSpotShadowColor="@color/white"
-        android:src="@drawable/logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <LinearLayout
         android:id="@+id/linearLayout4"
