@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CreateGroup"
+    android:background="@drawable/background">
 
 
     <ImageView
@@ -25,27 +26,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/share" />
+        android:onClick="CreateGroup"/>
 
 
     <TextView
         android:id="@+id/group_name_box"
-        android:layout_width="346dp"
-        android:layout_height="41dp"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_alignLeft="@+id/imageView2"
+        android:layout_width="319dp"
+        android:layout_height="40dp"
         android:layout_alignTop="@+id/imageView2"
         android:layout_alignEnd="@+id/imageView2"
-        android:layout_alignRight="@+id/imageView2"
-
-        android:layout_alignBottom="@+id/imageView2"
-        android:layout_marginStart="-16dp"
         android:layout_marginLeft="-16dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="11dp"
         android:layout_marginRight="11dp"
-        android:layout_marginBottom="144dp"
-        android:text="ادخل اسم المجوعة :"
+        android:layout_marginBottom="146dp"
+        android:text="ادخل اسم المجموعة :"
         android:textColor="@color/black"
         android:textSize="24sp" />
 
@@ -112,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:rippleColor="#FAF6F6" />
 
     <ImageButton

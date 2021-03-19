@@ -35,10 +35,8 @@ public class AdapterHomeItems extends RecyclerView.Adapter<AdapterHomeItems.Hold
         holder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context, ItemPage.class).putExtra("Mac", list.get(position).getMac())
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("item", list.get(position).getName());
-                context.startActivity(intent);
+                context.startActivity(new Intent(context, ItemPage.class).putExtra("Mac", list.get(position).getMac())
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
 
