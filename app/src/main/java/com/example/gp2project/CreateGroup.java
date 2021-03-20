@@ -99,6 +99,7 @@ public class CreateGroup extends AppCompatActivity {
        HashMap<String, String> map1 = new HashMap<>();
        map1.put("Mail",email);
        map1.put("Name",username);
+       map1.put("role","مشرف");
        mData2.setValue(map1);
    }
 }

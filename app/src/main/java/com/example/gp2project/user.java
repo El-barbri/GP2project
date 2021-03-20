@@ -7,9 +7,25 @@ public class user {
     String phonNum;
     String password;
     String Key;
+    String role="";
 
     public user() {
 
+    }
+
+
+    public user(String username, String email, String phonNum, String password) {
+        this.username = username;
+        this.email = email;
+        this.phonNum = phonNum;
+        this.password = password;
+
+    }
+
+    public String getRole(){return role;}
+
+    public void setRole(String role) {
+        role = role;
     }
 
     public String getKey() {
@@ -18,14 +34,6 @@ public class user {
 
     public void setKey(String key) {
         Key = key;
-    }
-
-    public user(String username, String email, String phonNum, String password) {
-        this.username = username;
-        this.email = email;
-        this.phonNum = phonNum;
-        this.password = password;
-
     }
 
     public String getUsername() {

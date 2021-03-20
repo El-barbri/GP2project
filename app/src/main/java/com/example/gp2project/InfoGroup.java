@@ -79,17 +79,15 @@ public class InfoGroup extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
                     user dev = new user();
                     dev.setKey(snapshot.getKey());
                     dev.setEmail(snapshot.child("Mail").getValue(String.class));
-                    //dev.setPhonNum(snapshot.child("phonNum").getValue(String.class));
                     dev.setUsername(snapshot.child("Name").getValue(String.class));
                     list.add(dev);
                     //snapshot.child("City").getValue(String.class)
                 }
 
-                AdapterUsers adapterHproducts = new AdapterUsers(getBaseContext(), list, "");
+                AdapterUsers adapterHproducts = new AdapterUsers(getBaseContext(), list,key);
                 recUsers.setLayoutManager(new LinearLayoutManager(getBaseContext()));
                 recUsers.setAdapter(adapterHproducts);
             }

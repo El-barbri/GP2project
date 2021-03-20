@@ -31,8 +31,8 @@ public class SelectUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
+        setContentView(R.layout.activity_select_user);
+        rec = findViewById(R.id.rec);
 
 
         intent = getIntent();
@@ -40,19 +40,14 @@ public class SelectUser extends AppCompatActivity {
 
         if (intent.hasExtra("key")) {
             Key = intent.getStringExtra("key");
-            setContentView(R.layout.activity_select_user);
-            rec = findViewById(R.id.rec);
             Init();
         } else {
             Key = intent.getStringExtra("Key");
-            setContentView(R.layout.activity_select_user);
-            rec = findViewById(R.id.rec);
             InitItems();
         }
-        if(intent.getStringExtra("type").equals("deleteMember")){
-            setContentView(R.layout.delete_memmber_page);
 
-        }
+
+
 
 
 
@@ -68,8 +63,8 @@ public class SelectUser extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     user dev = new user();
                     dev.setKey(snapshot.getKey());
-                    dev.setEmail(snapshot.child("email").getValue(String.class));
-                    dev.setPhonNum(snapshot.child("phonNum").getValue(String.class));
+                    //dev.setEmail(snapshot.child("email").getValue(String.class));
+                   // dev.setPhonNum(snapshot.child("phonNum").getValue(String.class));
                     dev.setUsername(snapshot.child("username").getValue(String.class));
                     list.add(dev);
                     //snapshot.child("City").getValue(String.class)
