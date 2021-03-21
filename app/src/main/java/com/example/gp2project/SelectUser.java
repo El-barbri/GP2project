@@ -40,7 +40,8 @@ public class SelectUser extends AppCompatActivity {
 
         if (intent.hasExtra("key")) {
             Key = intent.getStringExtra("key");
-            Init();
+            addMember();
+          //  Init();
         } else {
             Key = intent.getStringExtra("Key");
             InitItems();
@@ -53,7 +54,7 @@ public class SelectUser extends AppCompatActivity {
 
     }
 
-    public void Init() {
+   /* public void Init() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference().child("user");
         reference.addValueEventListener(new ValueEventListener() {
@@ -80,6 +81,10 @@ public class SelectUser extends AppCompatActivity {
 
             }
         });
+    }*/
+
+    public void addMember(){
+
     }
 
     public void InitItems() {

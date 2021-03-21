@@ -80,7 +80,7 @@ String name= user.getUsername();
     }
 
 
-    public void  AddMember(int position) {
+   /* public void  AddMember(int position) {
         if (!key.equals("")) {
             mData = FirebaseDatabase.getInstance().getReference().child("Groups").child(key).child("Members");
             HashMap<String, String> map = new HashMap<>();
@@ -90,7 +90,7 @@ String name= user.getUsername();
             mData.child(list.get(position).getKey()).setValue(map);
             Toast.makeText(context, "تمت الاضافة بنجاح ", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     public int getItemCount() {
         return list.size();

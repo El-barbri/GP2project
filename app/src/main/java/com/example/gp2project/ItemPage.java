@@ -331,7 +331,6 @@ public class ItemPage extends AppCompatActivity {
                         dev.setMac(snapshot.child("Mac").getValue(String.class));
                         list.add(dev);
                     }
-                    Log.w("تتتتتتتتتتت","ddd"+list.size());
                 }
 
                 @Override
