@@ -7,33 +7,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <View
+            android:id="@+id/aboveline"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="20dp"
+            android:background="#BDBCBC"
+
+            />
+
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="322dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/square"
+        android:layout_width="401dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginBottom="84dp"
+        android:background="@color/white"
         android:gravity="center|center"
-        android:text="أعضاء مجموعة عائلتي "
+        android:text="نرجو اختيار العضو الذي تريد إزالته من المجموعة:"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView17"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="291dp"
-        android:layout_height="43dp"
-        android:text="نرجو اختيار العضو الذي تريد إزالته من المجموعة:"
-        android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView17"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout4" />
 
     <ImageView
         android:id="@+id/imageView17"
@@ -47,8 +73,11 @@
         app:srcCompat="@drawable/login_rectangle" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="302dp"
-        android:layout_height="225dp"
+        android:id="@+id/deleterec"
+        android:layout_width="330dp"
+        android:layout_height="243dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView17"
         app:layout_constraintEnd_toEndOf="@+id/imageView17"
         app:layout_constraintStart_toStartOf="@+id/imageView17"

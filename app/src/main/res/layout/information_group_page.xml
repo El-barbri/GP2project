@@ -6,6 +6,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background">
 
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <View
+            android:id="@+id/aboveline"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="20dp"
+            android:background="#BDBCBC"
+
+            />
+
+
+    </LinearLayout>
+
+
+
+
     <ImageButton
         android:id="@+id/settingbtn"
         android:layout_width="40dp"
@@ -23,10 +64,10 @@
         android:id="@+id/groupItem"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="90dp"
         android:background="@color/white"
         android:gravity="center|center"
-        android:text="ممتلكات مجموعة عائلتي "
+        android:text="ممتلكات المجموعة  "
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/groupmMember"
@@ -40,10 +81,10 @@
         android:id="@+id/groupmMember"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="18dp"
         android:background="@color/white"
         android:gravity="center|center"
-        android:text="أعضاء مجموعة عائلتي "
+        android:text="أعضاء المجموعة  "
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,15 +94,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_width="378dp"
+        android:layout_height="160dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/groupmMember"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0."
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupItem" />
+        app:layout_constraintTop_toBottomOf="@+id/groupItem"
+        app:layout_constraintVertical_bias="0.29000002" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView2"

@@ -57,6 +57,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".AdabterMemberGroup"
+            tools:ignore="Instantiatable" />
         <service android:name=".service.DfuService" />
 
         <provider

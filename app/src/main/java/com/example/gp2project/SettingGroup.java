@@ -96,27 +96,24 @@ public class SettingGroup extends AppCompatActivity {
             }
         });
 
-       /* deletGroup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteGroup();
-            }
-        });*/
 
-       /* addmeMember.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddMember();
-            }
-        });*/
 
     }
 
     public void deletMember(View view){
-        startActivity(new Intent(this, SelectUser.class).putExtra("key", key).putExtra("type" , "deleteMember")
+        startActivity(new Intent(this, SelectUser.class).putExtra("Name", name)
+                .putExtra("key", key).putExtra("type" , "deleteMember")
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 
     }
+
+    public void deletGItem (View view){
+        startActivity(new Intent(this, SelectUser.class).putExtra("Name", name)
+                .putExtra("key", key).putExtra("type" , "deleteGItem")
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+    }
+
+
 
     public void deleteGroup(View view) {
         DatabaseReference group= FirebaseDatabase.getInstance().getReference("Groups").child(key);
@@ -133,7 +130,8 @@ public class SettingGroup extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 group.removeValue();
                 Toast.makeText(getApplicationContext(), "تم الحذف ", Toast.LENGTH_SHORT).show();
-               // startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
             }
         });
         deleteItem.setNegativeButton("إلغاء", new DialogInterface.OnClickListener() {
@@ -142,8 +140,10 @@ public class SettingGroup extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "تم الإلغاء بنجاح",Toast.LENGTH_SHORT).show();
             }
         });
-        this.finish();
         deleteItem.create().show();
+        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+       // this.finish();
+
     }
 
     public void groupLongName() {
@@ -227,8 +227,6 @@ public class SettingGroup extends AppCompatActivity {
     }
 
     public void AddMember(View view) {
-     /* startActivity(new Intent(this, SelectUser.class).putExtra("key", key).putExtra("type" , "addMember")
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));*/
 
         startActivity(new Intent(this, addGroupUser.class).putExtra("key", key)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
